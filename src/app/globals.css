@@ -3,27 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --fondo: #101112;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: rgb(0, 0, 0);
+  color: bisque;
 }
 
 @layer utilities {
@@ -31,3 +17,47 @@ body {
     text-wrap: balance;
   }
 }
+
+.boton {
+  box-shadow: inset 0 -0.01em 0.1em rgba(0, 0, 0, 0.235),
+    0 0 0 2px rgb(255, 255, 255), 0.01em 0.1em 0.05em rgba(0, 0, 0, 0.3);
+}
+
+/*:::Scroll:::*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--dark);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--hover-button);
+  border-radius: 5px;
+}
+
+/* Animaciones */
+
+@keyframes show {
+  from {
+    opacity: 0;
+    scale: 50%;
+  }
+
+  to {
+    opacity: 1;
+    scale: 100%;
+  }
+}
+
+.animate {
+  view-timeline-name: --image;
+  view-timeline-axis: block;
+
+  animation-timeline: --image;
+  animation-name: show;
+
+  animation-range: entry 25% cover 50%;
+  animation-fill-mode: both;
+}
+
+/* Animaciones */
